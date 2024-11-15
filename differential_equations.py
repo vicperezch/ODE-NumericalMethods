@@ -1,3 +1,7 @@
+# Kimberly Ola
+# Víctor Pérez
+# Juan Solís
+
 import numpy as np
 
 # Ecuación de primer orden -
@@ -13,7 +17,7 @@ def sust(t: float, x: float, u: float) -> float:
 
 
 # Ecuación de segundo orden - Oscilador amortiguado
-# y'' = 5cos(2t) - 4y - 9x
+# y'' = 5cos(2x) - 4y' - 9y
 def y_second_order(t: float, x: float, y: float) -> float:
     return 5 * np.cos(2 * t) - 4 * y - 9 * x
 
