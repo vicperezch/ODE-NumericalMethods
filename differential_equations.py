@@ -4,10 +4,16 @@
 
 import numpy as np
 
-# Ecuación de primer orden -
-# 
-def y_first_order(t: float, x: float, u: float) -> float:
-    return 0
+# Ecuación de primer orden - Decaimiento exponencial
+# y' = -2y + 1
+def y_first_order(x: float, y: float) -> float:
+    return -2 * y + 1
+
+
+# Solución analítica de la ecuación de primer orden
+# y(x) = 3e^(-2x) / 2 + 1 / 2
+def decay(x: float) -> float:
+    return 3 * np.exp(-2 * x) / 2 + 1 / 2
 
 
 # Sustitución para ecuaciones de segundo orden 

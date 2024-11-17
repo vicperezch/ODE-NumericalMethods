@@ -16,7 +16,7 @@ def main():
 
     while run:
         print("--- MÉTODOS NUMÉRICOS PARA ECUACIONES DIFERENCIALES ---")
-        print("1. Primer orden - x")
+        print("1. Primer orden - Decaimiento exponencial")
         print("2. Segundo orden - Oscilador amortiguado")
         print("3. Sistema de ecuaciones - Sistema de oferta y demanda")
         print("4. Salir")
@@ -24,7 +24,19 @@ def main():
         option = input("Seleccione una opción: ")
 
         if option == "1":
-            pass
+            analytical_y = de.decay(x)
+            t, rk3_y = nm.rk3(de.y_first_order, x_0 = 0, y_0 = 2, x_f = FINAL_X, h = STEP)
+            t, abm_y = nm.abm(de.y_first_order, x_0 = 0, y_0 = 2, x_f = FINAL_X, h = STEP)
+
+            initialize_graph(
+                x_label="Tiempo", 
+                y_label="Cantidad", 
+                x=x, 
+                t=t,
+                rk3_y=rk3_y, 
+                abm_y=abm_y,
+                analytical_y=analytical_y
+            )
 
         elif option == "2":
             analytical_y = de.oscilator(x)
