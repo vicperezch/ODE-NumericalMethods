@@ -34,13 +34,21 @@ def oscilator(x: float) -> float:
     return (25 * cos2x + 40 * sin2x) / 89 + e2x * (-25 * cos5x - 26 * np.sqrt(5) * sin5x) / 89 + e2x * (cos5x + 2 * sin5x / np.sqrt(5))
 
 
-# Primera ecuación de un sistema
-#
+# Primera ecuación del sistema
+# x' = -2x + 2y
 def x(t: float, x: float, y: float) -> float:
-    return 0
+    return -2 * x + 2 * y 
 
 
-# Segunda ecuación de un sistema
-#
+# Segunda ecuación del sistema
+# y' = 3x - 3y
 def y(t: float, x: float, y: float) -> float:
-    return 0
+    return 3 * x - 3 * y
+
+
+# Solución analítica del sistema de ecuaciones
+def system(t: float) -> tuple:
+    x = (4 * np.exp(-5 * t) + 1) / 5
+    y = (1 - 6 * np.exp(-5 * t)) / 5
+
+    return x, y
